@@ -1,17 +1,45 @@
+---
+import './global.css';
+import Nav from './components/nav.astro';
+import Footer from './components/footer.astro';
+const pageTitle = "About Me";
+const data ={
+	firstName: "Arunkumar",
+	lastName: "D",
+	age: 21,
+	hobbies: ["Reading", "Coding", "Gaming"],
+	skills: ["HTML", "CSS", "JS", "React", "Node"]
+}
+---
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+		<style>
+			h1 {
+			  color: purple;
+			  font-size: 4rem;
+			}
+			.skill{
+				color : green;
+			    font-weight: bold;
+			}
+		  </style>
+	  
 	</head>
 	<body>
-        <a href="/">Home</a>
-		<a href="/about">about</a>
-		<a href="/blog">blog</a>
-		<h1>about page</h1>
+        <Nav />
+		<h1>{pageTitle}</h1>
 		<h2>This is the about page</h2>
-        <p>This is my tutorial repository</p>
+        <h3>Hello I am {data.firstName} {data.lastName}.</h3>
+		<p>A student at University College OF Engineering Kariavattom, {data.age} years old.<br>My hobies are {data.hobbies.map(item => item)}</p>
+		<ul>
+			my skills are
+			{data.skills.map(skill => <li class="skill">{skill}</li>)}
+		</ul>
+		<Footer />
 	</body>
 </html>

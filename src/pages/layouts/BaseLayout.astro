@@ -1,6 +1,6 @@
 ---
-import './global.css';
-const pageTitle = "Blogs"
+import '../global.css';
+const {pageTitle} = Astro.props;
 ---
 <html lang="en">
 	<head>
@@ -14,13 +14,8 @@ const pageTitle = "Blogs"
 		<a href="/">Home</a>
 		<a href="/about">about</a>
 		<a href="/blog">blog</a>
-
 		<h1>{pageTitle}</h1>
-		<h2>List of blogs</h2>
-        <ul>
-            <li><a href="/posts/post-1/">Post 1</a></li>
-            <li><a href="/posts/post-2/">Post 2</a></li>
-            <li><a href="/posts/post-3/">Post 3</a></li>
-        </ul>
+		<h2>this is the index page</h2>
+		<slot />
 	</body>
 </html>
